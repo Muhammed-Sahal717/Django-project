@@ -1,0 +1,39 @@
+# --- Python & Bytecode ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# --- Virtual Environments ---
+# Catches .venv, venv/, env/, etc.
+.venv/
+venv/
+ENV/
+env/
+
+# --- Django Specific ---
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+
+# --- IDEs & Editors ---
+# VS Code
+.vscode/
+# PyCharm / JetBrains
+.idea/
+# Vim swap/backup files
+*.swp
+*.swo
+*~
+
+# --- OS Specific ---
+# Linux thumbnail and metadata files
+.DS_Store
+.Trash-*
+Thumbs.db
+ehthumbs.db
+desktop.ini
