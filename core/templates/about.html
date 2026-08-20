@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+  <h1>About Us</h1>
+  <p class="subtitle" style="margin-bottom: 3rem;">
+    We are passionate about building minimalistic, high-performance web applications using Django. Our goal is to provide a clean starting point for developers.
+  </p>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; width: 100%; text-align: left;">
+    {% for card in cards %}
+    <div style="background-color: var(--secondary); padding: 1.5rem; border-radius: var(--radius); border: 1px solid var(--border);">
+      <h3 style="color: var(--foreground); margin-bottom: 0.5rem; font-size: 1.25rem;">{{ card.title }}</h3>
+      <p style="color: var(--muted-foreground); font-size: 0.875rem; line-height: 1.5;">{{ card.description }}</p>
+    </div>
+    {% empty %}
+    <p style="color: var(--muted-foreground);">No cards available right now.</p>
+    {% endfor %}
+  </div>
+{% endblock %}
