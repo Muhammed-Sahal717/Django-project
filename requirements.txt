@@ -1,0 +1,11 @@
+# Usage / Help:
+# To install the dependencies for this project, run the following command:
+# pip install -r requirements.txt
+# asgiref: A standard for Python asynchronous web apps and servers (used by Django for async support)
+asgiref==3.12.1
+
+# Django: The core high-level Python web framework used for this project
+Django==6.1
+
+# sqlparse: A non-validating SQL parser used by Django for database query formatting/inspection
+sqlparse==0.6.0

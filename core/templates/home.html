@@ -166,11 +166,16 @@
     <div class="glow-2"></div>
 
     <div class="container">
-      <h1>Welcome to My Django App</h1>
-      <p class="subtitle">
-        A minimal, lightning-fast foundation for building modern web
-        applications. Powered by Django and designed with simplicity in mind.
-      </p>
+      <h1>{{ app_name|default:"Welcome to My Django App" }}</h1>
+      <p class="subtitle">{{ subtitle }}</p>
+
+      {% if features %}
+      <div style="margin-bottom: 2rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+          {% for feature in features %}
+              <span style="background: rgba(255,255,255,0.1); padding: 0.5rem 1.5rem; border-radius: 9999px; font-size: 0.875rem; color: var(--text-main);">{{ feature }}</span>
+          {% endfor %}
+      </div>
+      {% endif %}
 
       <div class="cta-buttons">
         <a href="#" class="btn btn-primary">Get Started</a>
