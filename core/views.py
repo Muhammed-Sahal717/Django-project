@@ -1,5 +1,5 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
 
 def home_view(request):
-    return HttpResponse("Hello, Arch Linux! Welcome to my first Django app.")
+    return render(request, 'home.html')
