@@ -221,8 +221,9 @@
 
       <h1>{{ app_name|default:"Build your component library." }}</h1>
       <p class="subtitle">
-        {{ subtitle|default:"Beautifully designed components that you can copy
-        and paste into your apps. Accessible. Customizable. Open Source." }}
+        {% if subtitle %} {{ subtitle }} {% else %} Beautifully designed
+        components that you can copy and paste into your apps. Accessible.
+        Customizable. Open Source. {% endif %}
       </p>
 
       <div class="cta-buttons">
