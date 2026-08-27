@@ -3,7 +3,7 @@ from django.shortcuts import render
 from .models import Student
 
 
-def home_view(request):
+def dashboard_view(request):
     students = Student.objects.all().order_by('-gpa')
     context = {
         'students': students,
@@ -12,5 +12,5 @@ def home_view(request):
     }
     return render(request, 'dashboard.html', context)
 
-def about_view(request):
+def platform_info_view(request):
     return render(request, 'platform_info.html')

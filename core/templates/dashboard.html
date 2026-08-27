@@ -1,51 +1,51 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <header>
-    <h1>Student Overview</h1>
+  <h1>Student Overview</h1>
 </header>
 
 <div class="stats-grid">
-    <div class="stat-card">
-        <h3>Total Students</h3>
-        <div class="value">{{ total_students }}</div>
-    </div>
-    <div class="stat-card">
-        <h3>Active Students</h3>
-        <div class="value">{{ active_students }}</div>
-    </div>
+  <div class="stat-card">
+    <h3>Total Students</h3>
+    <div class="value">{{ total_students }}</div>
+  </div>
+  <div class="stat-card">
+    <h3>Active Students</h3>
+    <div class="value">{{ active_students }}</div>
+  </div>
 </div>
 
 <table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Major</th>
-            <th>GPA</th>
-            <th>Status</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for student in students %}
-        <tr>
-            <td style="font-weight: 500;">{{ student.name }}</td>
-            <td style="color: #6b7280;">{{ student.email }}</td>
-            <td>{{ student.major }}</td>
-            <td>{{ student.gpa }}</td>
-            <td>
-                {% if student.is_active %}
-                <span class="status active">Active</span>
-                {% else %}
-                <span class="status inactive">Inactive</span>
-                {% endif %}
-            </td>
-        </tr>
-        {% empty %}
-        <tr>
-            <td colspan="5" style="text-align: center; padding: 2rem; color: #6b7280;">No students found in the database.</td>
-        </tr>
-        {% endfor %}
-    </tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Major</th>
+      <th>GPA</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for student in students %}
+    <tr>
+      <td style="font-weight: 500; color: #09090b">{{ student.name }}</td>
+      <td style="color: #71717a">{{ student.email }}</td>
+      <td style="color: #09090b">{{ student.major }}</td>
+      <td style="color: #09090b">{{ student.gpa }}</td>
+      <td>
+        {% if student.is_active %}
+        <span class="status active">Active</span>
+        {% else %}
+        <span class="status inactive">Inactive</span>
+        {% endif %}
+      </td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="5" style="text-align: center; padding: 2rem; color: #71717a">
+        No students found in the database.
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
 </table>
 {% endblock %}
