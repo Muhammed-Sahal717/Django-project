@@ -1,11 +1,13 @@
 import os
-import django
 import random
+
+import django
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
 django.setup()
 
 from core.models import Student
+
 
 def populate():
     Student.objects.all().delete()

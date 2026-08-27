@@ -10,7 +10,7 @@ def home_view(request):
         'total_students': students.count(),
         'active_students': students.filter(is_active=True).count(),
     }
-    return render(request, 'home.html', context)
+    return render(request, 'dashboard.html', context)
 
 def about_view(request):
-    return render(request, 'about.html')
+    return render(request, 'platform_info.html')
