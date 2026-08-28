@@ -1,157 +1,42 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Student Dashboard{% endblock %}</title>
     <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        font-family:
-          system-ui,
-          -apple-system,
-          BlinkMacSystemFont,
-          "Segoe UI",
-          Roboto,
-          sans-serif;
-        background-color: #ffffff;
-        color: #09090b;
-        display: flex;
-        min-height: 100vh;
-      }
-      .sidebar {
-        width: 260px;
-        background-color: #f4f4f5;
-        border-right: 1px solid #e4e4e7;
-        padding: 1.5rem 1rem;
-        display: flex;
-        flex-direction: column;
-      }
-      .sidebar h2 {
-        margin-bottom: 2rem;
-        font-size: 1.125rem;
-        font-weight: 600;
-        letter-spacing: -0.025em;
-        padding-left: 0.75rem;
-        color: #09090b;
-      }
-      .sidebar a {
-        display: block;
-        color: #71717a;
-        text-decoration: none;
-        padding: 0.625rem 0.75rem;
-        border-radius: 0.375rem;
-        font-size: 0.875rem;
-        font-weight: 500;
-        margin-bottom: 0.25rem;
-        transition:
-          background 0.15s,
-          color 0.15s;
-      }
-      .sidebar a:hover {
-        background-color: #e4e4e7;
-        color: #09090b;
-      }
-      .sidebar a.active {
-        background-color: #09090b;
-        color: #fafafa;
-      }
-      .main-content {
-        flex: 1;
-        padding: 2.5rem;
-        overflow-y: auto;
-        background-color: #ffffff;
-      }
-      header {
-        margin-bottom: 2rem;
-      }
-      h1 {
-        font-size: 1.875rem;
-        font-weight: 600;
-        letter-spacing: -0.025em;
-        color: #09090b;
-      }
-      .stats-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 1rem;
-        margin-bottom: 2rem;
-      }
-      .stat-card {
-        background: #ffffff;
-        padding: 1.5rem;
-        border-radius: 0.5rem;
-        border: 1px solid #e4e4e7;
-      }
-      .stat-card h3 {
-        font-size: 0.875rem;
-        font-weight: 500;
-        color: #71717a;
-        margin-bottom: 0.5rem;
-      }
-      .stat-card .value {
-        font-size: 1.875rem;
-        font-weight: 600;
-        letter-spacing: -0.025em;
-        color: #09090b;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        background: #ffffff;
-        border: 1px solid #e4e4e7;
-        border-radius: 0.5rem;
-        overflow: hidden;
-      }
-      th,
-      td {
-        padding: 0.75rem 1rem;
-        text-align: left;
-        border-bottom: 1px solid #e4e4e7;
-        font-size: 0.875rem;
-      }
-      th {
-        background-color: #f4f4f5;
-        font-weight: 600;
-        color: #71717a;
-      }
-      tr:last-child td {
-        border-bottom: none;
-      }
-      tr:hover td {
-        background-color: #fafafa;
-      }
-      .status {
-        display: inline-flex;
-        align-items: center;
-        padding: 0.125rem 0.625rem;
-        border-radius: 9999px;
-        font-size: 0.75rem;
-        font-weight: 500;
-        border: 1px solid transparent;
-      }
-      .status.active {
-        background-color: #f4f4f5;
-        color: #09090b;
-        border-color: #e4e4e7;
-      }
-      .status.inactive {
-        background-color: #ffffff;
-        color: #71717a;
-        border-color: #e4e4e7;
-      }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: system-ui, -apple-system, sans-serif; background-color: #09090b; color: #fafafa; display: flex; min-height: 100vh; }
+        .sidebar { width: 250px; background-color: #09090b; color: #fafafa; padding: 2rem 1rem; border-right: 1px solid #27272a; }
+        .sidebar h2 { margin-bottom: 2rem; font-size: 1.5rem; text-align: center; color: #fafafa; letter-spacing: -0.025em; font-weight: 600; }
+        .sidebar a { display: block; color: #a1a1aa; text-decoration: none; padding: 0.75rem 1rem; border-radius: 0.375rem; margin-bottom: 0.5rem; transition: background 0.2s, color 0.2s; font-size: 0.875rem; font-weight: 500; }
+        .sidebar a:hover { background-color: #27272a; color: #fafafa; }
+        .sidebar a.active { background-color: #fafafa; color: #09090b; }
+        .main-content { flex: 1; padding: 2.5rem; overflow-y: auto; }
+        header { margin-bottom: 2rem; }
+        h1 { font-size: 1.875rem; font-weight: 600; color: #fafafa; letter-spacing: -0.025em; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+        .stat-card { background: #09090b; padding: 1.5rem; border-radius: 0.5rem; border: 1px solid #27272a; box-shadow: 0 1px 2px rgba(0,0,0,0.4); }
+        .stat-card h3 { font-size: 0.875rem; color: #a1a1aa; font-weight: 500; margin-bottom: 0.5rem; }
+        .stat-card .value { font-size: 2rem; font-weight: 700; color: #fafafa; letter-spacing: -0.025em; }
+        table { width: 100%; border-collapse: collapse; background: #09090b; border-radius: 0.5rem; overflow: hidden; border: 1px solid #27272a; box-shadow: 0 1px 2px rgba(0,0,0,0.4); }
+        th, td { padding: 1rem; text-align: left; border-bottom: 1px solid #27272a; font-size: 0.875rem; }
+        th { background-color: #09090b; font-weight: 500; color: #a1a1aa; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background-color: #18181b; }
+        .status { padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 500; display: inline-block; }
+        .status.active { background-color: rgba(52, 211, 153, 0.1); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.2); }
+        .status.inactive { background-color: rgba(248, 113, 113, 0.1); color: #f87171; border: 1px solid rgba(248, 113, 113, 0.2); }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <div class="sidebar">
-      <h2>EduDash</h2>
-      <a href="{% url 'dashboard' %}">Dashboard</a>
-      <a href="{% url 'platform_info' %}">About Platform</a>
+        <h2>EduDash</h2>
+        <a href="{% url 'dashboard' %}" class="{% if request.path == '/' %}active{% endif %}">Dashboard</a>
+        <a href="{% url 'platform_info' %}" class="{% if request.path == '/info/' %}active{% endif %}">About Platform</a>
     </div>
-    <div class="main-content">{% block content %}{% endblock %}</div>
-  </body>
+    <div class="main-content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
 </html>
